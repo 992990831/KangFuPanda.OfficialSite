@@ -15,11 +15,13 @@ const Content = tw.div`mt-16`;
 
 const Card = styled.div(props => [
   tw`mt-24 md:flex justify-center items-center`,
-  props.reversed ? tw`flex-row-reverse` : "flex-row"
+  // props.reversed ? tw`flex-row-reverse` : "flex-row",
+  'margin-top: 0px'
 ]);
+
 const Image = styled.div(props => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`
+  tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-contain bg-no-repeat bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`
 ]);
 const Details = tw.div`mt-4 md:mt-0 md:max-w-md mx-4 sm:mx-8 md:mx-4 lg:mx-8`;
 const Subtitle = tw.div`font-bold tracking-wide text-secondary-100`;
@@ -44,9 +46,9 @@ export default () => {
   const cards = [
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1550699026-4114bbf4fb49?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=632&q=80",
+        "https://www.kangfupanda.com/resources/biophyto.png",
       subtitle: "Paid",
-      title: "Loachella, NYC",
+      title: "柏植萃",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       url: "https://timerse.com"
@@ -54,9 +56,9 @@ export default () => {
 
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1543423924-b9f161af87e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        "https://www.kangfupanda.com/resources/broda.png",
       subtitle: "Free",
-      title: "Rock In Rio, Upstate",
+      title: "博乐达",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       url: "https://timerse.com"
@@ -64,9 +66,37 @@ export default () => {
 
     {
       imageSrc:
-        "https://images.unsplash.com/photo-1509824227185-9c5a01ceba0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80",
+        "https://www.kangfupanda.com/resources/derma.png",
       subtitle: "Exclusive",
-      title: "Lollapalooza, Manhattan",
+      title: "DERMACEUTIC",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      url: "https://timerse.com"
+    },
+   
+    {
+      imageSrc:
+        "https://www.kangfupanda.com/resources/medspa.png",
+      subtitle: "Exclusive",
+      title: "MEDSPA",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      url: "https://timerse.com"
+    },
+    {
+      imageSrc:
+        "https://www.kangfupanda.com/resources/pcaskin.png",
+      subtitle: "Exclusive",
+      title: "PCA SKIN",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      url: "https://timerse.com"
+    },
+    {
+      imageSrc:
+        "https://www.kangfupanda.com/resources/revision.png",
+      subtitle: "Exclusive",
+      title: "REVISION SKINCARE",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       url: "https://timerse.com"
@@ -74,26 +104,27 @@ export default () => {
   ];
 
   return (
-    <Container>
-      <a name="Brand"></a>
+    <Container>      
       <SingleColumn>
         <HeadingInfoContainer>
-          <HeadingTitle>Popular Events</HeadingTitle>
-          <HeadingDescription>
+        <a name="Brand" style={{display:'hidden'}}></a>
+          <HeadingTitle>合作品牌</HeadingTitle>
+          {/* <HeadingDescription>
             Here are some of the most popular events in New York City curated by professionals.
-          </HeadingDescription>
+          </HeadingDescription> */}
         </HeadingInfoContainer>
 
         <Content>
+        
           {cards.map((card, i) => (
             <Card key={i} reversed={i % 2 === 1}>
               <Image imageSrc={card.imageSrc} />
-              <Details>
+              {/* <Details>
                 <Subtitle>{card.subtitle}</Subtitle>
                 <Title>{card.title}</Title>
                 <Description>{card.description}</Description>
                 <Link href={card.url}>See Event Details</Link>
-              </Details>
+              </Details> */}
             </Card>
           ))}
         </Content>

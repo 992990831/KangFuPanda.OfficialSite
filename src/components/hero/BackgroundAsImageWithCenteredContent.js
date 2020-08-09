@@ -22,15 +22,16 @@ const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`
 // `;
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
+  background-color: #669966
 `;
 
-const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black opacity-75`;
+const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-blue-200 opacity-25`;
 
 const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col`;
 const Content = tw.div`px-4 flex flex-1 flex-col justify-center items-center`;
 
 const Heading = styled.h2`
-  ${tw`text-2xl text-center sm:text-4xl lg:text-5xl xl:text-6xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
+  ${tw`text-xl text-left sm:text-2xl lg:text-2xl xl:text-2xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
   span {
     ${tw`inline-block mt-2`}
   }
@@ -65,11 +66,15 @@ export default () => {
     <Container>
       <OpacityOverlay />
       <HeroContainer>
+        <a name="About" style={{display:'none'}}></a>
         <StyledHeader links={navLinks} />
         <Content>
-          <a name="About"></a>
           <Heading>
-            一健平台聚集了众多经过平台认证的消费医疗领域的资深专家，在医学护肤，形体及体重管理，营养治疗等诸多消费医疗领域拥有最丰富的医学级健康内容。
+            <p>一键平台聚集了众多经过平台认证的消费医疗领域的资深专家，在医学护肤，形体及体重管理，营养治疗等诸多消费医疗领域拥有最丰富的医学级健康内容。</p>
+            <br />
+            <p>一键平台有针对性的筛选最具科学循证支持的专业品牌，针对品牌方专业化精准化营销的需求，提供完整的内容营销多渠道推广解决方案。</p>
+          <br />
+          <p>没有各种低俗内容，没有明星八卦，一健平台致力于为消费者提供最纯净最专业的消费医疗知识内容分享，消费者与专家直接深度互动。一健点评，医学护肤，安全享瘦。</p>
           </Heading>
           {/* <PrimaryAction>Search Events Near Me</PrimaryAction> */}
         </Content>

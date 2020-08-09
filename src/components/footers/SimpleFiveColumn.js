@@ -40,13 +40,17 @@ export default () => {
       <FiveColumns>
         <WideColumn>
           <LogoContainer>
-            <LogoImg src={LogoImage} />
-            <LogoText>Treact Inc.</LogoText>
+            {/* <LogoImg src={LogoImage} /> */}
+            <LogoText></LogoText>
           </LogoContainer>
           <CompanyDescription>
-            Treact is an Internet Technology company providing design resources such as website templates and themes.
+          一键点评 版权所有 ©2014-2020       
+          <br />    
+          备案号：浙ICP备19052964号-1   
+          <br />    
+          电话：400 188 2148      
           </CompanyDescription>
-          <SocialLinksContainer>
+          {/* <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
               <FacebookIcon />
             </SocialLink>
@@ -56,9 +60,9 @@ export default () => {
             <SocialLink href="https://youtube.com">
               <YoutubeIcon />
             </SocialLink>
-          </SocialLinksContainer>
+          </SocialLinksContainer> */}
         </WideColumn>
-        <Column>
+        {/* <Column>
           <ColumnHeading>Quick Links</ColumnHeading>
           <LinkList>
             <LinkListItem>
@@ -108,7 +112,7 @@ export default () => {
               <Link href="#">Disclaimer</Link>
             </LinkListItem>
           </LinkList>
-        </Column>
+        </Column> */}
       </FiveColumns>
     </Container>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -10,6 +10,8 @@ import { ReactComponent as ArrowLeftIcon } from "../../images/arrow-left-2-icon.
 import { ReactComponent as ArrowRightIcon } from "../../images/arrow-right-2-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "../../images/svg-decorator-blob-4.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "../../images/svg-decorator-blob-5.svg";
+
+import axios from 'axios';
 
 import "slick-carousel/slick/slick.css";
 
@@ -69,7 +71,23 @@ const DecoratorBlob2 = tw(
   SvgDecoratorBlob2
 )`absolute w-32 bottom-0 right-0 -z-10 text-pink-500 opacity-15 transform translate-x-2/3 translate-y-8`;
 
+const apiUrl = 'https://api.kangfupanda.com';
+const resourceUrl = 'https://api.kangfupanda.com/Upload/';
+
 export default () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    getList();
+  }, [])
+
+  const getList = () => {
+    axios(`${apiUrl}/site/club/list`, {
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => {
+      setItems(res.data);
+    })
+  }
   /*
    * You can modify the testimonials shown by modifying the array below
    * You can add or remove objects from the array as you need.
@@ -103,28 +121,32 @@ export default () => {
   return (
     <Container>
       <Content>
-        <a name="Club"></a>
+       
         <HeadingInfoContainer>
-          <HeadingTitle>Our Awesome Customers</HeadingTitle>
-          <HeadingDescription></HeadingDescription>
+          <a name="Club" style={{display:'hidden'}}></a>
+          <HeadingTitle>研习社</HeadingTitle>
+          {/* <HeadingDescription></HeadingDescription> */}
         </HeadingInfoContainer>
         <TestimonialSliderContainer>
           <TestimonialSlider nextArrow={<NextArrow />} prevArrow={<PreviousArrow />}>
-            {testimonials.map((testimonial, index) => (
+            {items.map((item, index) => (
               <Testimonial key={index}>
                 <ImageContainer>
-                  <img src={testimonial.imageSrc} alt={testimonial.customerName} />
+                  <a href='http://app.kangfupanda.com/#/postDetail/78'>
+                    <img src={`${resourceUrl}${item.poster}`} alt='封面' />
+                  </a>
+                  
                 </ImageContainer>
                 <TextContainer>
                   <QuoteContainer>
-                    <QuotesLeft />
-                    <Quote>{testimonial.quote}</Quote>
-                    <QuotesRight />
+                    {/* <QuotesLeft /> */}
+                    <Quote>{item.name}</Quote>
+                    {/* <QuotesRight /> */}
                   </QuoteContainer>
-                  <CustomerInfo>
+                  {/* <CustomerInfo>
                     <CustomerName>{testimonial.customerName}</CustomerName>
                     <CustomerTitle>{testimonial.customerTitle}</CustomerTitle>
-                  </CustomerInfo>
+                  </CustomerInfo> */}
                 </TextContainer>
               </Testimonial>
             ))}
