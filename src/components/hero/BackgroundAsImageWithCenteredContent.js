@@ -16,22 +16,38 @@ const StyledHeader = styled(Header)`
 `;
 
 const PrimaryLink = tw(PrimaryLinkBase)`rounded-full`
-// const Container = styled.div`
-//   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-//   background-image: url("https://images.unsplash.com/photo-1536300007881-7e482242baa5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=80");
-// `;
 const Container = styled.div`
   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
-  background-color: #669966
+  background-image: url("http://www.kangfupanda.com/resources/homepage_bg_02.jpg");
 `;
+// const Container = styled.div`
+//   ${tw`relative -mx-8 -mt-8 bg-center bg-cover h-screen min-h-144`}
+//   background-color: #669966
+// `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-blue-200 opacity-25`;
 
 const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col`;
 const Content = tw.div`px-4 flex flex-1 flex-col justify-center items-center`;
 
+// const Heading = styled.h2`
+//   ${tw`text-xl text-left sm:text-2xl lg:text-2xl xl:text-2xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
+//   span {
+//     ${tw`inline-block mt-2`}
+//   }
+// `;
+
 const Heading = styled.h2`
-  ${tw`text-xl text-left sm:text-2xl lg:text-2xl xl:text-2xl font-black text-gray-100 leading-snug -mt-24 sm:mt-0`}
+  ${css`
+    font-size:1.25em;
+    text-align:left;
+    font-weight: 900;
+    --text-opacity:1;
+    color:rgba(100, 100, 100,var(--text-opacity));
+    line-height:1.375;
+    margin-top:-6rem;
+  `}
+
   span {
     ${tw`inline-block mt-2`}
   }

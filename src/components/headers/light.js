@@ -34,13 +34,29 @@ export const PrimaryLink = tw(NavLink)`
   border-b-0
 `;
 
+// export const LogoLink = styled(NavLink)`
+//   ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
+
+//   img {
+//     ${tw`w-10 mr-3`}
+//   }
+// `;
+
+
 export const LogoLink = styled(NavLink)`
-  ${tw`flex items-center font-black border-b-0 text-2xl! ml-0!`};
+  ${css`
+    font-size:1.7rem;
+    display: flex;
+    color:black;
+    line-height:1.375;
+
+  `}
 
   img {
     ${tw`w-10 mr-3`}
   }
 `;
+
 
 export const MobileNavLinksContainer = tw.nav`flex flex-1 items-center justify-between`;
 export const NavToggle = tw.button`
@@ -124,14 +140,18 @@ export default ({ roundedHeaderButton = false, logoLink, links, className, colla
 
   return (
     <Header className={className || "header-light"}>
-      <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
+      {/* <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
         {logoLink}
-        {/* {links} */}
+       
         {navLinks}
-      </DesktopNavLinks>
+      </DesktopNavLinks> */}
 
       <MobileNavLinksContainer css={collapseBreakpointCss.mobileNavLinksContainer}>
-        {logoLink}
+        {/* {logoLink} */}
+        <a href="/" style={{fontSize:'1.75em', display:'flex', lineHeight:'1.75em', color:'rgba(30,30,30, 0.9)', fontWeight:'900'}} >
+          <img src={logo} alt="logo" style={{height:'50px', marginRight:'0.5em'}}/>
+          一键点评
+        </a>
         <MobileNavLinks initial={{ x: "150%", display: "none" }} animate={animation} css={collapseBreakpointCss.mobileNavLinks}>
           {/* {links} */}
           {navLinks}
